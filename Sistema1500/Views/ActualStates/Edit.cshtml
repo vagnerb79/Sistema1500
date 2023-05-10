@@ -1,0 +1,145 @@
+﻿@model ActualState
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<section class="content-header">
+    <h1>1500fh<small>Desenvolvedor Full Stack</small></h1>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Estado Atual</h3>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="row" style="font-size: 16px; justify-content:center; display:flex">
+
+                            <form asp-action="Edit" style="display:flex">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="col-sm-6">
+                                    <input type="hidden" asp-for="Id" />
+                                    <div class="form-group">
+                                        <label asp-for="ProjectId" class="control-label" style="color:blue"></label>
+                                        <select asp-for="ProjectId" class="form-control" asp-items="ViewBag.ProjectId">
+                                            <option> Selecione a opção </option>
+                                        </select>
+                                        <span asp-validation-for="ProjectId" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="CircleId" class="control-label" style="color:blue"></label>
+                                        <select asp-for="CircleId" class="form-control" asp-items="ViewBag.CircleId">
+                                            <option> Selecione a opção </option>
+                                        </select>
+                                        <span asp-validation-for="CircleId" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="TypeConsultorId" class="control-label" style="color:blue"></label>
+                                        <select asp-for="TypeConsultorId" class="form-control" asp-items="ViewBag.TypeConsultorId">
+                                            <option> Selecione a opção </option>
+                                        </select>
+                                        <span asp-validation-for="TypeConsultorId" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="TypeObject" class="control-label" style="color:blue"></label>
+                                        <select asp-for="TypeObject" class="form-control">
+                                            <option> Selecione a opção </option>
+                                            <option> Gestao </option>
+                                            <option> ETL </option>
+                                            <option> DASH </option>
+                                            <option> BBP </option>
+                                            <option> Aula </option>
+                                            <option> PREPAULA </option>
+                                            <option> DEV </option>
+                                            <option> MANUT </option>
+                                        </select>
+                                        <span asp-validation-for="TypeObject" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label asp-for="Description" class="control-label" style="color:blue"></label>
+                                        <input asp-for="Description" class="form-control" />
+                                        <span asp-validation-for="Description" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="TimePlanned" class="control-label" style="color:blue"></label>
+                                        <input asp-for="TimePlanned" class="form-control" />
+                                        <span asp-validation-for="TimePlanned" class="text-danger"></span>
+                                    </div>
+                                    @*            <div class="form-group">
+                                    <label asp-for="Value" class="control-label"></label>
+                                    <input asp-for="Value" class="form-control" />
+                                    <span asp-validation-for="Value" class="text-danger"></span>
+                                    </div>*@
+                                    <div class="form-group">
+                                        <label asp-for="PersonId" class="control-label" style="color:blue"></label>
+                                        <select asp-for="PersonId" class="form-control" asp-items="ViewBag.PersonId">
+                                            <option> Selecione a opção </option>
+                                        </select>
+                                        <span asp-validation-for="PersonId" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="RealTime" class="control-label" style="color:blue"></label>
+                                        <input asp-for="RealTime" class="form-control" />
+                                        <span asp-validation-for="RealTime" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label asp-for="RealValue" class="control-label" style="color:blue"></label>
+                                        <input asp-for="RealValue" class="form-control" />
+                                        <span asp-validation-for="RealValue" class="text-danger"></span>
+                                    </div>
+                                    @*            <div class="form-group">
+                                    <label asp-for="Productivity" class="control-label"></label>
+                                    <input asp-for="Productivity" class="form-control" />
+                                    <span asp-validation-for="Productivity" class="text-danger"></span>
+                                    </div>*@
+                                    <div class="form-group">
+                                        <label asp-for="Sprint" class="control-label" style="color:blue"></label>
+                                        <input asp-for="Sprint" class="form-control" type="date" value="@Model.Sprint.ToString("yyyy-MM-dd")" />
+                                        <span asp-validation-for="Sprint" class="text-danger"></span>
+                                    </div>
+
+                                    <hr />
+                                    <div class="form-group form-check">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" asp-for="Delivered" /> @Html.DisplayNameFor(model => model.Delivered)
+                                        </label>
+                                    </div>
+                                    @*            <div class="form-group">
+                                    <label asp-for="FinalValue" class="control-label"></label>
+                                    <input asp-for="FinalValue" class="form-control" />
+                                    <span asp-validation-for="FinalValue" class="text-danger"></span>
+                                    </div>*@
+
+                                    <hr />
+                                    <div class="form-group">
+                                        <input type="submit" value="Salvar" class="btn btn-warning" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <a asp-action="Index" style="font-size:16px; color:blue;"><i class="fa fa-undo"></i> Voltar</a>
+    </div>
+</section>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,94 @@
+﻿@model Sistema1500.Models.Learning
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<section class="content-header">
+    <h1>1500fh<small>Desenvolvedor Full Stack</small></h1>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Aprendizados</h3>
+                </div>
+                <div class="box-body">
+                    <div class="row" style="font-size: 16px; justify-content:center; display:flex">
+                        <div>
+                            <h3 class="box-title">Detalhes</h3>
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Date)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Date)
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Circle)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Circle.Id)
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Theme)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Theme.Id)
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.OportunityLearning)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.OportunityLearning)
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.LearningAction)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.LearningAction)
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.MeasurementDate)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.MeasurementDate)
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.MeasurementForm)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.MeasurementForm)
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Result)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Result)
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Comment)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Comment)
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Status)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Status)
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.Id">Editar</a> |
+        <a asp-action="Index" style="font-size:16px; color:blue;"> <i class="fa fa-undo"> </i> Voltar</a>
+    </div>
+</section>

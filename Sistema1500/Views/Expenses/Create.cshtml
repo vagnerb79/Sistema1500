@@ -1,0 +1,143 @@
+﻿@model Sistema1500.Models.Expense
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<section class="content-header">
+    <h1>1500fh<small>Desenvolvedor Full Stack</small></h1>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Despesas</h3>
+                </div>
+                <div class="box-body">
+                    <div class="row" style="font-size: 16px; justify-content:center; display:flex">
+
+                        <form asp-action="Create" style="display:flex;gap:5px">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label asp-for="Type" class="control-label" style="color:blue"></label>
+                                    <select asp-for="Type" class="form-control">
+                                        <option>Selecione uma opção</option>
+                                        <option value="false"> Pagar </option>
+                                        <option value="true"> Receber </option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="RegisterDate" class="control-label" style="color:blue"></label>
+                                    <input asp-for="RegisterDate" class="form-control" />
+                                    <span asp-validation-for="RegisterDate" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="CashDate" class="control-label" style="color:blue"></label>
+                                    <input asp-for="CashDate" class="form-control" />
+                                    <span asp-validation-for="CashDate" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="MonthDate" class="control-label" style="color:blue"></label>
+                                    <input asp-for="MonthDate" class="form-control" />
+                                    <span asp-validation-for="MonthDate" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="CompeteDate" class="control-label" style="color:blue"></label>
+                                    <input asp-for="CompeteDate" class="form-control" />
+                                    <span asp-validation-for="CompeteDate" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label asp-for="CompeteMonthDate" class="control-label" style="color:blue"></label>
+                                    <input asp-for="CompeteMonthDate" class="form-control" />
+                                    <span asp-validation-for="CompeteMonthDate" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="CostCenterId" class="control-label" style="color:blue"></label>
+                                    <select asp-for="CostCenterId" class="form-control" asp-items="ViewBag.CostCenterId"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="CapturesId" class="control-label" style="color:blue"></label>
+                                    <select asp-for="CapturesId" class="form-control" asp-items="ViewBag.CapturesId"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="PersonId" class="control-label" style="color:blue"></label>
+                                    <select asp-for="PersonId" class="form-control" asp-items="ViewBag.PersonId"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="TargetBill" class="control-label" style="color:blue"></label>
+                                    <input asp-for="TargetBill" class="form-control" />
+                                    <span asp-validation-for="TargetBill" class="text-danger"></span>
+                                </div>
+
+                            </div>
+
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label asp-for="BankAccountId" class="control-label" style="color:blue"></label>
+                                    <select asp-for="BankAccountId" class="form-control" asp-items="ViewBag.BankAccountId"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Description" class="control-label" style="color:blue"></label>
+                                    <input asp-for="Description" class="form-control" />
+                                    <span asp-validation-for="Description" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Value" class="control-label" style="color:blue"></label>
+                                    <input asp-for="Value" class="form-control" />
+                                    <span asp-validation-for="Value" class="text-danger"></span>
+                                </div>
+                                @*            <div class="form-group">
+                                <label asp-for="BankValueMoment" class="control-label" style="color:blue"></label>
+                                <input asp-for="BankValueMoment" class="form-control" />
+                                <span asp-validation-for="BankValueMoment" class="text-danger"></span>
+                                </div>*@
+                                @*            <div class="form-group">
+                                <label asp-for="EnterpriseBankValueMoment" class="control-label" style="color:blue"></label>
+                                <input asp-for="EnterpriseBankValueMoment" class="form-control" />
+                                <span asp-validation-for="EnterpriseBankValueMoment" class="text-danger"></span>
+                                </div>*@
+                            </div>
+
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input asp-for="Validated" /> @Html.DisplayNameFor(model => model.Validated)
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input asp-for="Plan" /> @Html.DisplayNameFor(model => model.Plan)
+                                        </label>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="form-group">
+                                    <input type="submit" value="Criar" class="btn btn-primary" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index" style="font-size:16px; color:blue;"> <i class="fa fa-undo"> </i> Voltar</a>
+    </div>
+</section>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

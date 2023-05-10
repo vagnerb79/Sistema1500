@@ -1,0 +1,136 @@
+﻿@model Sistema1500.Models.Expense
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<section class="content-header">
+    <h1>1500fh<small>Desenvolvedor Full Stack</small></h1>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Despesas</h3>
+                </div>
+                <div class="box-body">
+                    <div class="row" style="font-size: 16px; justify-content:center; display:flex">
+                        <div>
+                            <h3 class="box-title">Detalhes</h3>
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Type)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Type)
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.RegisterDate)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.RegisterDate)
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.CashDate)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.CashDate)
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.MonthDate)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.MonthDate)
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.CompeteDate)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.CompeteDate)
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.CompeteMonthDate)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.CompeteMonthDate)
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.CostCenter)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.CostCenter.Id)
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Captures)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Captures.Id)
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Person)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Person.Id)
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.BankAccount)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.BankAccount.Id)
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.TargetBill)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.TargetBill)
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Description)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Description)
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Value)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Value)
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Validated)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Validated)
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Plan)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Plan)
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.BankValueMoment)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.BankValueMoment)
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.EnterpriseBankValueMoment)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.EnterpriseBankValueMoment)
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.Id">Editar</a> |
+        <a asp-action="Index" style="font-size:16px; color:blue;"> <i class="fa fa-undo"> </i> Voltar</a>
+    </div>
+</section>

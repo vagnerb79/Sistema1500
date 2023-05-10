@@ -1,0 +1,432 @@
+﻿@model IEnumerable<Expense>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section class="content-header">
+    <h1> <a asp-action="Create"> Criar Novo </a> </h1>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Despesas</h3>
+                </div>
+                <div class="box-body">
+                    <table id="table" class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <input id="checkCentral" type="checkbox" />
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Type)
+                                </th>
+                                @*                    <th>
+                                @Html.DisplayNameFor(model => model.RegisterDate)
+                                </th>
+                                <th>
+                                @Html.DisplayNameFor(model => model.CashDate)
+                                </th>*@
+                                <th>
+                                    @Html.DisplayNameFor(model => model.MonthDate)
+                                </th>
+                                @*                    <th>
+                                @Html.DisplayNameFor(model => model.CompeteDate)
+                                </th>*@
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CompeteMonthDate)
+                                </th>
+                                @*<th>
+                                @Html.DisplayNameFor(model => model.CostCenter)
+                                </th>
+                                <th>
+                                @Html.DisplayNameFor(model => model.Captures)
+                                </th>
+                                <th>
+                                @Html.DisplayNameFor(model => model.Person)
+                                </th>
+                                <th>
+                                @Html.DisplayNameFor(model => model.BankAccount)
+                                </th>
+                                <th>
+                                @Html.DisplayNameFor(model => model.TargetBill)
+                                </th>*@
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Description)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Value)
+                                </th>
+                                @* <th>
+                                @Html.DisplayNameFor(model => model.Validated)
+                                </th>
+                                <th>
+                                @Html.DisplayNameFor(model => model.Plan)
+                                </th>*@
+                                <th>
+                                    @Html.DisplayNameFor(model => model.BankValueMoment)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.EnterpriseBankValueMoment)
+                                </th>
+                                <th>
+
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <input name="checkSelect" type="checkbox" value="@item.Id" />
+                                    </td>
+                                    <td>
+                                        @{
+                                            if (item.Type == true)
+                                            {
+                                                Write("Recebimento");
+                                            }
+                                            if (item.Type == false)
+                                            {
+                                                Write("Pagamento");
+                                            }
+                                        }
+                                    </td>
+                                    @* <td>
+                                @Html.DisplayFor(modelItem => item.RegisterDate)
+                                </td>
+                                <td>
+                                @Html.DisplayFor(modelItem => item.CashDate)
+                                </td>*@
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.MonthDate)
+                                    </td>
+                                    @*                        <td>
+                                @Html.DisplayFor(modelItem => item.CompeteDate)
+                                </td>*@
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CompeteMonthDate)
+                                    </td>
+                                    @*                        <td>
+                                @Html.DisplayFor(modelItem => item.CostCenter.Name)
+                                </td>
+                                <td>
+                                @Html.DisplayFor(modelItem => item.Captures.Name)
+                                </td>
+                                <td>
+                                @Html.DisplayFor(modelItem => item.Person.Name)
+                                </td>
+                                <td>
+                                @Html.DisplayFor(modelItem => item.BankAccount.Name)
+                                </td>
+                                <td>
+                                @Html.DisplayFor(modelItem => item.TargetBill)
+                                </td>*@
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Description)
+                                    </td>
+                                    <td name="valor">
+                                        @Html.DisplayFor(modelItem => item.Value)
+                                    </td>
+                                    @* <td>
+                                @{
+                                if (item.Validated == true)
+                                {
+                                <i class="fas fa-check" style="color:blue"></i>
+                                }
+                                if (item.Validated == false)
+                                {
+                                <i class="fas fa-times-circle" style="color:red"></i>
+                                }
+                                }
+                                </td>
+                                <td>
+                                @{
+                                if (item.Plan == true)
+                                {
+                                <i class="fas fa-check" style="color:blue"></i>
+                                }
+                                if (item.Plan == false)
+                                {
+                                <i class="fas fa-times-circle" style="color:red"></i>
+                                }
+                                }
+                                </td>*@
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.BankValueMoment)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.EnterpriseBankValueMoment)
+                                    </td>
+                                    <td>
+                                        <a asp-action="Edit" asp-route-id="@item.Id" style="font-size:18px"><ion-icon name="color-wand-sharp"></ion-icon></a>
+                                        <a asp-action="Details" asp-route-id="@item.Id" style="font-size:18px"><ion-icon name="information-circle-sharp"></ion-icon></a>
+                                        <a asp-action="Delete" asp-route-id="@item.Id" style="font-size:18px;color:red"><ion-icon name="trash-sharp"></ion-icon></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th style="visibility: hidden"></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th style="visibility: hidden"></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <button id="limparFiltro" class="btn btn-info"> Limpar Filtros </button>
+                    <button id="abrirModal" class="btn btn-primary">Duplicar Registro</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button id="botaoDeletar" type="button" style="display:none; border:none; background:transparent; color: red;font-size:20px">
+        <i class="fa fa-trash"></i>
+    </button>
+    <div class="soma">
+        <label> Soma dos valores selecionados </label>
+        <input type="text" id="resultado" name="resultado" />
+    </div>
+</section>
+
+<style>
+    .modal {
+        display: none; /* esconde o modal */
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.5);
+    }
+
+    .modal-conteudo {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 600px;
+    }
+
+    .fechar {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+        .fechar:hover,
+        .fechar:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    #table_filter > label > input[type=search] {
+        margin: 0;
+        box-sizing: border-box;
+        appearance: none;
+        border: 2px solid #000;
+        border-radius: 4px;
+    }
+
+    div.soma {
+        font-size: 16px;
+        color: blue;
+        font-weight: 500;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    #resultado {
+        font-weight: 600;
+        font-size: 20px;
+        background: transparent;
+        border: none;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+</style>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        $(document).ready(function () {
+            $("#checkCentral").click(function () {
+                $("input[name='checkSelect']").prop('checked', $(this).prop('checked'));
+
+                if ($(this).prop('checked')) {
+                    $("#botaoDeletar").show();
+                }
+                else {
+                    $("#botaoDeletar").hide();
+                }
+            });
+
+            $("input[name='checkSelect']").click(function () {
+                var selectedIds = $("input[name='checkSelect']:checked").length;
+
+                if ($(this).is(':checked') || selectedIds > 0) {
+                    $("#botaoDeletar").show();
+                }
+                else {
+                    $("#botaoDeletar").hide();
+                    $("#checkCentral").prop('checked', false);
+                }
+            });
+
+            $("#botaoDeletar").click(function () {
+                var idsSelecionados = $("input[name='checkSelect']:checked").map(function () {
+                    return $(this).val();
+                }).get();
+
+                if (idsSelecionados.length > 0) {
+                    if (confirm("Tem certeza que deseja DELETAR ?")) {
+                        $.ajax({
+                            url: '@Url.Action("MultipleDelete" , "Circles")',  //Preenchimento de acordo com a ação do Controller
+                            type: 'POST',
+                            data: { ids: idsSelecionados },
+                            success: function () {
+                                location.reload();
+                            },
+                            error: function () {
+                                alert("Erro ao Deletar!!");
+                            }
+                        });
+                    }
+                }
+                else {
+                    alert("Selecione um item para Deletar!!");
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            $('#table').DataTable({
+                language: {
+                    "emptyTable": "Nenhum registro encontrado ",
+                    "info": " Mostrando de _START_ até _END_ de _TOTAL_ registros ",
+                    "infoFiltered": "(Filtrados de _MAX_ registros)",
+                    "infoThousands": ".",
+                    "loadingRecords": " Carregando...",
+                    "lengthMenu": "Exibir _MENU_ resultados por página",
+                    "infoEmpty": " Mostrando 0 até 0 de 0 registro(s)",
+                    "zeroRecords": "Nenhum registro encontrado ",
+                    "search": " Pesquisar  ",
+                    "infoEmpty": " Mostrando 0 até 0 de 0 registro(s)",
+                    "processing": " Carregando...",
+                    "paginate": {
+                        "next": "   Próximo  ",
+                        "previous": "  Anterior   ",
+                        "first": "  Primeiro  ",
+                        "last": "  Último  "
+                    },
+                },
+                initComplete: function () {
+                    this.api()
+                        .columns()
+                        .every(function () {
+                            var column = this;
+                            var select = $('<select><option value="">Filtrar</option></select>')
+                                .appendTo($(column.footer()).empty())
+                                .on('change', function () {
+                                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                                    column.search(val ? '^' + val + '$' : '', true, false).draw();
+                                });
+
+                            column
+                                .data()
+                                .unique()
+                                .sort()
+                                .each(function (d, j) {
+                                    select.append('<option value="' + d + '">' + d + '</option>');
+                                });
+                        });
+                },
+            });
+            $("#limparFiltro").click(function () {
+                $("#table").find("tbody tr").show();
+                $("#table").find("input[type='text']").val("");
+                $("#table").find("select").val("");
+                location.reload(); // Recarrega a página atual e apresenta todos os registros novamente
+            });
+        });
+
+    </script>
+
+    <script>
+        var soma = 0;
+        $('#resultado').val("R$ 0,00"); //Inicia a página com valor R$ 0
+
+        $('input[name="checkSelect"]').click(function () { //Verifica checkbox selecionados
+            var isChecked = $(this).is(':checked');
+            var row = $(this).closest('tr');
+            var value = row.find('td:eq(5)').text().replace("R$ ", "").replace(".", "").replace(",", ".");
+
+            if (isNaN(value)) {
+                value = 0;
+            }
+
+            if (isChecked) {
+                soma += parseFloat(value);
+            } else {
+                soma -= parseFloat(value);
+            }
+
+            if (soma < 0) {
+                soma = 0;
+            }
+
+            //Apresenta resultado no input criado
+            $('#resultado').val("R$ " + soma.toLocaleString('pt-BR', { minimumFractionDigits: 2 }));
+
+        });
+
+        $('#checkCentral').click(function () { //Verifica se checkGeral está selecionado
+            var isChecked = $(this).is(':checked');
+            $('input[name="checkSelect"]').prop('checked', isChecked);
+            soma = 0;
+
+            $('input[name="checkSelect"]').each(function () {
+                if ($(this).is(':checked')) {
+                    var row = $(this).closest('tr');
+                    var value = row.find('td:eq(5)').text().replace("R$ ", "").replace(".", "").replace(",", ".");
+
+                    if (isNaN(value)) {
+                        value = 0;
+                    }
+
+                    soma += parseFloat(value);
+                }
+            });
+
+            if (soma < 0) {
+                soma = 0;
+            }
+
+            //Apresenta resultado no input criado
+            $('#resultado').val("R$ " + soma.toLocaleString('pt-BR', { minimumFractionDigits: 2 }));
+
+        });
+
+    </script>
+
+}

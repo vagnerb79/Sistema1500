@@ -1,0 +1,56 @@
+﻿@model Sistema1500.Models.TypeConsultor
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<section class="content-header">
+    <h1>1500fh<small>Desenvolvedor Full Stack</small></h1>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Consultores</h3>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="row" style="font-size: 16px; justify-content:center; display:flex">
+
+                            <form asp-action="Edit" style="display:flex;gap:10px">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="col-sm-20">
+                                    <input type="hidden" asp-for="Id" />
+                                    <div class="form-group">
+                                        <label asp-for="Name" class="control-label" style="color:blue"></label>
+                                        <input asp-for="Name" class="form-control" />
+                                        <span asp-validation-for="Name" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Fee" class="control-label" style="color:blue"></label>
+                                        <input asp-for="Fee" class="form-control" />
+                                        <span asp-validation-for="Fee" class="text-danger"></span>
+                                    </div>
+                                <div class="form-group">
+                                    <input type="submit" value="Salvar" class="btn btn-warning" />
+                                </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <a asp-action="Index" style="font-size:16px; color:blue;"><i class="fa fa-undo"></i> Voltar</a>
+    </div>
+</section>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

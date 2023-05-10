@@ -1,0 +1,58 @@
+﻿@model Sistema1500.Models.Enterprise
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<section class="content-header">
+    <h1>1500fh<small>Desenvolvedor Full Stack</small></h1>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Empresas</h3>
+                </div>
+                <div class="box-body">
+                    <div class="row" style="font-size: 16px; justify-content:center; display:flex">
+                        <div>
+                            <h3 class="box-title">Detalhes</h3>
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Name)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Name)
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.CNPJ)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.CNPJ)
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Phone)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Phone)
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Email)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Email)
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.Id">Editar</a> |
+        <a asp-action="Index" style="font-size:16px; color:blue;"> <i class="fa fa-undo"> </i> Voltar</a>
+    </div>
+</section>
